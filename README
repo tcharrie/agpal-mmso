@@ -1,0 +1,18 @@
+The reduction from existential APAL to MFO is implemented in the file translator.ml. The code is in open source, and is coded in the Ocaml language (http://ocaml.org/). Here are some precisions about the syntax:
+- Boolean formulas: Atomb(s) correspond to an atomic proposition whose label is s. the And and the Or take a list of formulas (supposedly with at least 2 elements). 
+- Accessibility programs: we added a new primitive Set(l) for "change the value of atomic propositions whose label is in l".
+- AGPAL formula: NumberTrue(i,l) means "In the list l, there are i true atomic propositions". It is then translated in MFO.
+
+#####################################
+How to use the code:
+
+the file translator.ml generates the several examples described in the article in Section 6. To run the script, run the command "ocaml translator.ml EXAMPLE_TYPE ARG1 ARG 2 ARG3" where:
+- EXAMPLE_TYPE is either  muddy_normal, modduy_arbitrary, muddy_group, russian_normal, russian_group, russian_group_one.
+- In the muddy children case: ARG1 is the total number of children, ARG2 is the number of muddy children. ARG3 is empty
+- In the russian cards case: ARG1, ARG2, ARG3 are the number of cards of agents a, b and c.
+
+The output is a TPTP code.
+#####################################
+Alternative using directly iproveropt:
+
+If you have iproveropt, put the executable in the folder and run a script associated.
